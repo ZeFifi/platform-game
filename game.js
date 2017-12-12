@@ -39,6 +39,7 @@ function addPlatforms() {
   platforms.create(550, 200, 'platform');
   platforms.create(300, 450, 'platform');
   platforms.create(400, 350, 'platform');
+  platforms.create(600, 400, 'platform2');
   platforms.setAll('body.immovable', true);
 }
 
@@ -82,6 +83,7 @@ window.onload = function () {
     
     //Load images
     game.load.image('platform', 'platform_1.png');
+    game.load.image('platform2', 'platform_2.png');
     
     //Load spritesheets
     game.load.spritesheet('player', 'chalkers.png', 48, 62);

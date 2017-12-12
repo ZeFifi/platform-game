@@ -61,7 +61,13 @@ function createBadge() {
 // when the player collects an item on the screen
 function itemHandler(player, item) {
   item.kill();
-  currentScore = currentScore + 10;
+  if(item.key === "star") {
+    currentScore = currentScore + 20;
+  } else if(item.key === "poison") {
+    currentScore = currentScore - 10;
+  } else {
+    currentScore = currentScore + 10;
+  }
   if (currentScore === winningScore) {
       createBadge();
   }
@@ -106,7 +112,7 @@ window.onload = function () {
     addPlatforms();
 
     cursors = game.input.keyboard.createCursorKeys();
-    jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.UP);
     text = game.add.text(16, 16, "SCORE: " + currentScore, { font: "bold 24px Arial", fill: "white" });
     winningMessage = game.add.text(game.world.centerX, 275, "", { font: "bold 48px Arial", fill: "white" });
     winningMessage.anchor.setTo(0.5, 1);
